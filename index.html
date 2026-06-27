@@ -146,14 +146,15 @@
                             `**Часовой пояс:** ${timezone}\n` +
                             `**Часы в неделю:** ${hours}\n` +
                             `**Войны:** ${wars}\n` +
-                            `**PVE/PVP:** ${pvpve}`;
+                            `**PVE/PVP:** ${pvpve}\n\n` +
+                            `@Офицер @Командир @Заместитель @Глава`;
 
             fetch('https://discord.com/api/webhooks/1520254779824275496/Dl4m8vDOi2VmLvOkhVjo-whDKPcuKSlGzmI1tZ0-lAbwWdQJEGNVbtIFUwpdo2hm_tjk', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ content: message })
             }).then(() => {
-                alert('Заявка отправлена! Ожидайте ответа.');
+                alert('Заявка отправлена! Ожидайте ответа от офицеров.');
                 document.getElementById('applicationForm').reset();
             }).catch(() => {
                 alert('Ошибка отправки. Попробуйте позже.');

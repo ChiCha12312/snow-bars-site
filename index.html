@@ -44,6 +44,15 @@
             margin: 20px 0;
             border: 1px solid #00ccff;
         }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #00ccff;
+            color: #fff;
+            border-radius: 8px;
+        }
         button {
             background: #00ccff;
             color: #000;
@@ -64,24 +73,53 @@
         </header>
 
         <div class="container">
+            <!-- Форма заявки -->
             <div class="section">
-                <h2>Наши ценности</h2>
+                <h2>📝 Форма заявки в клан</h2>
                 <div class="card">
-                    <p><strong>Братство</strong> • <strong>Дисциплина</strong> • <strong>Победа в каждом бою</strong></p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Присоединяйся к нам</h2>
-                <div class="card">
-                    <button onclick="window.open('https://discord.gg/rWrJvrYrF', '_blank')">Вступить в Discord</button>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Топ игроков</h2>
-                <div class="card">
-                    <p>Здесь будет топ активных бойцов клана</p>
+                    <form id="applicationForm">
+                        <input type="text" id="nickname" placeholder="Ваш игровой ник [Ваше имя]" required>
+                        <input type="number" id="age" placeholder="Ваш возраст" min="16" required>
+                        <select id="timezone" required>
+                            <option value="">Выберите часовой пояс</option>
+                            <option>UTC+2 (Москва)</option>
+                            <option>UTC+3</option>
+                            <option>UTC+4</option>
+                            <option>UTC+5</option>
+                            <option>UTC+6</option>
+                            <option>UTC+7</option>
+                            <option>UTC+8</option>
+                            <option>UTC+9</option>
+                            <option>UTC+10</option>
+                            <option>UTC+11</option>
+                            <option>UTC+12</option>
+                            <option>UTC-1</option>
+                            <option>UTC-2</option>
+                            <option>UTC-3</option>
+                            <option>UTC-4</option>
+                            <option>UTC-5</option>
+                            <option>UTC-6</option>
+                            <option>UTC-7</option>
+                            <option>UTC-8</option>
+                            <option>UTC-9</option>
+                            <option>UTC-10</option>
+                            <option>UTC-11</option>
+                            <option>UTC-12</option>
+                        </select>
+                        <input type="number" id="hours" placeholder="Сколько часов готовы уделять игре в неделю (минимум 6)" min="6" required>
+                        <select id="wars" required>
+                            <option value="">Готовы ли участвовать в клановых войнах?</option>
+                            <option>Да</option>
+                            <option>Нет</option>
+                        </select>
+                        <select id="pvpve" required>
+                            <option value="">Вы любите PVE или PVP?</option>
+                            <option>PVE</option>
+                            <option>PVP</option>
+                            <option>Оба</option>
+                        </select>
+                        <button type="submit">Отправить заявку</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -90,5 +128,37 @@
             <p>© Snow Bars Clan 2026 • Docslen • Калибр</p>
         </footer>
     </div>
+
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nickname = document.getElementById('nickname').value;
+            const age = document.getElementById('age').value;
+            const timezone = document.getElementById('timezone').value;
+            const hours = document.getElementById('hours').value;
+            const wars = document.getElementById('wars').value;
+            const pvpve = document.getElementById('pvpve').value;
+
+            const message = `**Новая заявка в Snow Bars Clan!**\n\n` +
+                            `**Ник:** ${nickname}\n` +
+                            `**Возраст:** ${age}\n` +
+                            `**Часовой пояс:** ${timezone}\n` +
+                            `**Часы в неделю:** ${hours}\n` +
+                            `**Войны:** ${wars}\n` +
+                            `**PVE/PVP:** ${pvpve}`;
+
+            fetch('https://discord.com/api/webhooks/1520254779824275496/Dl4m8vDOi2VmLvOkhVjo-whDKPcuKSlGzmI1tZ0-lAbwWdQJEGNVbtIFUwpdo2hm_tjk', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: message })
+            }).then(() => {
+                alert('Заявка отправлена! Ожидайте ответа.');
+                document.getElementById('applicationForm').reset();
+            }).catch(() => {
+                alert('Ошибка отправки. Попробуйте позже.');
+            });
+        });
+    </script>
 </body>
 </html>

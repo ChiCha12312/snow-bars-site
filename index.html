@@ -44,11 +44,15 @@
             margin: 20px 0;
             border: 1px solid #00ccff;
         }
-        iframe {
-            width: 100%;
-            height: 600px;
+        button {
+            background: #00ccff;
+            color: #000;
+            padding: 16px 40px;
             border: none;
-            border-radius: 15px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 15px;
         }
     </style>
 </head>
@@ -60,16 +64,25 @@
         </header>
 
         <div class="container">
-            <!-- Список участников -->
             <div class="section">
-                <h2>👥 Список участников клана</h2>
+                <h2>Наши ценности</h2>
                 <div class="card">
-                    <iframe src="https://disk.yandex.ru/i/jNsYiLjEf3keKg" frameborder="0"></iframe>
+                    <p><strong>Братство</strong> • <strong>Дисциплина</strong> • <strong>Победа в каждом бою</strong></p>
                 </div>
             </div>
 
             <div class="section">
-                <button onclick="window.open('https://discord.gg/rWrJvrYrF', '_blank')">Присоединиться в Discord</button>
+                <h2>Присоединяйся к нам</h2>
+                <div class="card">
+                    <button onclick="window.open('https://discord.gg/rWrJvrYrF', '_blank')">Вступить в Discord</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Топ игроков</h2>
+                <div class="card">
+                    <p>Здесь будет топ активных бойцов клана</p>
+                </div>
             </div>
         </div>
 

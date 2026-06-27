@@ -7,7 +7,7 @@
     <meta name="keywords" content="Клан Snow Bars, Snow Bars, Snow, Клан Snow, Клан Bars, Калибр клан">
     <title>Snow Bars Clan • Официальный клан в Калибре</title>
     <!-- Иконка сайта -->
-    <link rel="icon" href="https://media.discordapp.net/attachments/1508897200569192528/1520244577515212942/i_6.webp" type="image/webp">
+    <link rel="icon" href="https://media.discordapp.net/attachments/1508897200569192528/1520244577515212942/i_6.webp?ex=6a407d98&is=6a3f2c18&hm=1ccf1d0473e4e540155f613a0e1397e7ce8052a6449be756d70a77f0cd9bbc06&=&format=webp&width=1350&height=762" type="image/webp" sizes="32x32">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -102,7 +102,7 @@
                             <option>UTC-5</option>
                             <option>UTC-6</option>
                             <option>UTC-7</option>
-<option>UTC-8</option>
+                            <option>UTC-8</option>
                             <option>UTC-9</option>
                             <option>UTC-10</option>
                             <option>UTC-11</option>
@@ -142,14 +142,14 @@
             const wars = document.getElementById('wars').value;
             const pvpve = document.getElementById('pvpve').value;
 
-            const message = **Новая заявка в Snow Bars Clan!**\n\n +
-                            **Ник:** ${nickname}\n +
-                            **Возраст:** ${age}\n +
-                            **Часовой пояс:** ${timezone}\n +
-                            **Часы в неделю:** ${hours}\n +
-                            **Войны:** ${wars}\n +
-                            **PVE/PVP:** ${pvpve}\n\n +
-                            <@&1507841494860697801> <@&1507841659411632239> <@&1507839459964747877> <@&1507839224571760690>;
+            const message = `**Новая заявка в Snow Bars Clan!**\n\n` +
+                            `**Ник:** ${nickname}\n` +
+                            `**Возраст:** ${age}\n` +
+                            `**Часовой пояс:** ${timezone}\n` +
+                            `**Часы в неделю:** ${hours}\n` +
+                            `**Войны:** ${wars}\n` +
+                            `**PVE/PVP:** ${pvpve}\n\n` +
+                            `<@&1507841494860697801> <@&1507841659411632239> <@&1507839459964747877> <@&1507839224571760690>`;
 
             fetch('https://discord.com/api/webhooks/1520254779824275496/Dl4m8vDOi2VmLvOkhVjo-whDKPcuKSlGzmI1tZ0-lAbwWdQJEGNVbtIFUwpdo2hm_tjk', {
                 method: 'POST',

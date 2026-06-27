@@ -1,3 +1,63 @@
+<option>UTC-11</option>
+                            <option>UTC-12</option>
+                        </select>
+                        <input type="number" id="hours" placeholder="Сколько часов готовы уделять игре в неделю (минимум 6)" min="6" required>
+                        <select id="wars" required>
+                            <option value="">Готовы ли участвовать в клановых войнах?</option>
+                            <option>Да</option>
+                            <option>Нет</option>
+                        </select>
+                        <select id="pvpve" required>
+                            <option value="">Вы любите PVE или PVP?</option>
+                            <option>PVE</option>
+                            <option>PVP</option>
+                            <option>Оба</option>
+                        </select>
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer style="padding: 50px; background: rgba(0,0,0,0.8);">
+            <p>© Snow Bars Clan 2026 • Docslen • Калибр</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nickname = document.getElementById('nickname').value;
+            const age = document.getElementById('age').value;
+            const timezone = document.getElementById('timezone').value;
+            const hours = document.getElementById('hours').value;
+            const wars = document.getElementById('wars').value;
+            const pvpve = document.getElementById('pvpve').value;
+
+            const message = **Новая заявка в Snow Bars Clan!**\n\n +
+                            **Ник:** ${nickname}\n +
+                            **Возраст:** ${age}\n +
+                            **Часовой пояс:** ${timezone}\n +
+                            **Часы в неделю:** ${hours}\n +
+                            **Войны:** ${wars}\n +
+                            **PVE/PVP:** ${pvpve}\n\n +
+                            <@&1507841494860697801> <@&1507841659411632239> <@&1507839459964747877> <@&1507839224571760690>;
+
+            fetch('https://discord.com/api/webhooks/1520254779824275496/Dl4m8vDOi2VmLvOkhVjo-whDKPcuKSlGzmI1tZ0-lAbwWdQJEGNVbtIFUwpdo2hm_tjk', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: message })
+            }).then(() => {
+                alert('Заявка отправлена! Ожидайте ответа от офицеров.');
+                document.getElementById('applicationForm').reset();
+            }).catch(() => {
+                alert('Ошибка отправки. Попробуйте позже.');
+            });
+        });
+    </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -103,63 +163,3 @@
                             <option>UTC-8</option>
                             <option>UTC-9</option>
                             <option>UTC-10</option>
-                            <option>UTC-11</option>
-                            <option>UTC-12</option>
-                        </select>
-                        <input type="number" id="hours" placeholder="Сколько часов готовы уделять игре в неделю (минимум 6)" min="6" required>
-                        <select id="wars" required>
-                            <option value="">Готовы ли участвовать в клановых войнах?</option>
-                            <option>Да</option>
-                            <option>Нет</option>
-                        </select>
-                        <select id="pvpve" required>
-                            <option value="">Вы любите PVE или PVP?</option>
-                            <option>PVE</option>
-                            <option>PVP</option>
-                            <option>Оба</option>
-                        </select>
-                        <button type="submit">Отправить заявку</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <footer style="padding: 50px; background: rgba(0,0,0,0.8);">
-            <p>© Snow Bars Clan 2026 • Docslen • Калибр</p>
-        </footer>
-    </div>
-
-    <script>
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nickname = document.getElementById('nickname').value;
-            const age = document.getElementById('age').value;
-            const timezone = document.getElementById('timezone').value;
-            const hours = document.getElementById('hours').value;
-            const wars = document.getElementById('wars').value;
-            const pvpve = document.getElementById('pvpve').value;
-
-            const message = `**Новая заявка в Snow Bars Clan!**\n\n` +
-                            `**Ник:** ${nickname}\n` +
-                            `**Возраст:** ${age}\n` +
-                            `**Часовой пояс:** ${timezone}\n` +
-                            `**Часы в неделю:** ${hours}\n` +
-                            `**Войны:** ${wars}\n` +
-                            `**PVE/PVP:** ${pvpve}\n\n` +
-                            `@Офицер @Командир @Заместитель @Глава`;
-
-            fetch('https://discord.com/api/webhooks/1520254779824275496/Dl4m8vDOi2VmLvOkhVjo-whDKPcuKSlGzmI1tZ0-lAbwWdQJEGNVbtIFUwpdo2hm_tjk', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ content: message })
-            }).then(() => {
-                alert('Заявка отправлена! Ожидайте ответа от офицеров.');
-                document.getElementById('applicationForm').reset();
-            }).catch(() => {
-                alert('Ошибка отправки. Попробуйте позже.');
-            });
-        });
-    </script>
-</body>
-</html>
